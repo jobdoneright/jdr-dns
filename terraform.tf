@@ -1,5 +1,3 @@
-provider "aws" {}
-
 # jobdoneright.ie
 # jobdoneright.mobi
 # jobdoneright.co.uk

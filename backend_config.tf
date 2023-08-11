@@ -1,8 +1,16 @@
 terraform {
-  backend "s3" {
-    bucket         = "terraform-tfstate-293109759455"
-    key            = "jobdoneright-jdr-dns"
-    region         = "eu-west-1"
-    dynamodb_table = "terraform_locks"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 2.0"
+    }
+  }
+
+  cloud {
+    organization = "jdr1"
+
+    workspaces {
+      name = "jdr-dns"
+    }
   }
 }
