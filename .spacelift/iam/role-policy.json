@@ -1,0 +1,47 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TerraformStateObject",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
+      "Resource": "arn:aws:s3:::terraform-tfstate-293109759455/jobdoneright-jdr-dns"
+    },
+    {
+      "Sid": "TerraformStateBucket",
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket", "s3:GetBucketVersioning"],
+      "Resource": "arn:aws:s3:::terraform-tfstate-293109759455"
+    },
+    {
+      "Sid": "TerraformStateLock",
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+      ],
+      "Resource": "arn:aws:dynamodb:eu-west-1:293109759455:table/terraform_locks"
+    },
+    {
+      "Sid": "Route53ZoneAndRecordManagement",
+      "Effect": "Allow",
+      "Action": [
+        "route53:CreateHostedZone",
+        "route53:DeleteHostedZone",
+        "route53:GetHostedZone",
+        "route53:GetHostedZoneCount",
+        "route53:ListHostedZones",
+        "route53:ListHostedZonesByName",
+        "route53:UpdateHostedZoneComment",
+        "route53:ChangeResourceRecordSets",
+        "route53:ListResourceRecordSets",
+        "route53:GetChange",
+        "route53:ChangeTagsForResource",
+        "route53:ListTagsForResource"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

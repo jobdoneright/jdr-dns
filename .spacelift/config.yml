@@ -1,0 +1,22 @@
+# Spacelift runtime configuration.
+#
+# Read by Spacelift from `.spacelift/config.yml` on every run. Anything set
+# here OVERRIDES the equivalent setting on the stack in the UI, so keep it
+# minimal.
+#
+# Full key list: https://docs.spacelift.io/concepts/configuration/runtime-configuration
+#
+# Deliberately NOT set here:
+#
+#   project_root  - the stack builds from the repository root.
+#   runner_image  - the default image is fine.
+#   environment   - AWS credentials come from the `jdr-dns` AWS integration as
+#                   temporary role credentials. Never put credentials here;
+#                   this repository is public.
+#   hooks         - a hook that exits non-zero fails the run.
+#
+version: "1"
+
+# Matches `.terraform-version` and `required_version` in versions.tf. 1.5.7 is
+# the last open-source release, the newest the Terraform (FOSS) workflow runs.
+terraform_version: "1.5.7"
